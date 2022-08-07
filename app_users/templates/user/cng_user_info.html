@@ -1,0 +1,16 @@
+{% extends "user/base.html" %}
+{% block content %}
+
+<title>Edit profile</title>
+<h1>
+Edit Profile
+</h1>
+
+
+<form action="{% url 'cng_user_info' object.pk %}" method="post", enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">submit</button>
+</form>
+{% endblock %}
+</html>

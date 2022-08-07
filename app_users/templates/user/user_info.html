@@ -1,0 +1,42 @@
+{% extends "user/base.html" %}
+{% load static %}
+{% block content %}
+<title>Profile</title>
+<h1>
+Profile
+</h1>
+
+<a href="{% url 'cng_user_info' request.user.pk %}">Change profile info</a>
+    <ul>
+        <li>
+            <p> username: {{request.user.username}} </p>
+        </li>
+        <li>
+            <p> name: {{request.user.first_name}} </p>
+        </li>
+        <li>
+            <p> lastname: {{request.user.last_name}} </p>
+        </li>
+        <li>
+            <p> fathers name: {{request.user.fathers_name}} </p>
+        </li>
+        <li>
+            <p> Email: {{request.user.email}} </p>
+        </li>
+
+        <li>
+            <p> birthday: {{request.user.birthday}} </p>
+        </li>
+        <li>
+            <p> status: {{request.user.status}} </p>
+        </li>
+    </ul>
+
+{% if request.user.is_superuser %}<form action="{% url 'user_info'%}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">submit</button>
+</form>
+{% endif %}
+{% endblock %}
+</html>

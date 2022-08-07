@@ -1,0 +1,51 @@
+{% extends "user/base.html" %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="data-types">
+    <div>
+        <h2>New notice: </h2>
+        <form method="post" action="{% url 'main' %}" enctype="multipart/form-data" class="form-content">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="form-btn">submit</button>
+        </form>
+    </div>
+    <div class="notice-content">
+    <h2> Notice: </h2>
+    {% if notice %}
+        <ul>
+            {% for noty in notice %}
+                <li><p>
+                    Author  {{noty.user}} - at: {{noty.crated_at|date:'d-m-Y' }} {{noty.crated_at|time:'H:i:s' }}
+                    </p>
+                    <a href="{% url 'notice_detail' noty.pk %}">{{noty.title}}</a>
+                    <p>
+                         {{noty.text|truncatechars:150}}
+                    </p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p> No notice yet: </p>
+    {% endif %}
+    </div>
+    <div class="user-content">
+    <h2> Users: </h2>
+    {% if users %}
+        <ul>
+            {% for user in users %}
+                <li>{{user}}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p> No users yet: </p>
+    {% endif %}
+    </div>
+</div>
+</body>
+{% endblock %}
+</html>

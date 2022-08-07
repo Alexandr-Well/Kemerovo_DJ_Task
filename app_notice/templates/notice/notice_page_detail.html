@@ -1,0 +1,15 @@
+{% extends "user/base.html" %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="detail-page">
+<h1 class="detail-content">{{object.title}}</h1>
+<p class="detail-content">{{object.text}}</p>
+<h4 class="detail-content">Author: {{object.user}}</h4>
+</div>
+</body>
+{% endblock %}
+</html>

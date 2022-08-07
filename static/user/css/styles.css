@@ -1,0 +1,28 @@
+html,
+body {
+    font-family: 'Arial';
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    color: #444;
+}
+
+li {
+    list-style-type: none;
+}
+
+.submit-spinner_hide {
+    display: none;
+}
+
+a {
+    color: #4845f7;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #CC0000;
+    text-decoration: underline;
+}
+
