@@ -24,7 +24,7 @@
                     </p>
                     <a href="{% url 'notice_detail' noty.pk %}">{{noty.title}}</a>
                     <p>
-                         {{noty.text|truncatechars:150}}
+                         {{noty.text|truncatechars:70}}
                     </p>
                 </li>
             {% endfor %}
