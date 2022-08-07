@@ -5,7 +5,7 @@
 
 1. Склонировать репозиторий с Github:
 ```
-git clone https://github.com/Alexandr-Well/Newsletter.git
+git clone https://github.com/Alexandr-Well/Kemerovo_DJ_Task.git
 ```
 
 2. В дирректории проекта создать виртуальное окружение с учетом вашей ОС:
