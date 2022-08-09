@@ -6,12 +6,15 @@
 </head>
 <body>
 <div class="data-types">
-    <div>
+    <div class=" notice-background">
         <h2>New notice: </h2>
-        <form method="post" action="{% url 'main' %}" enctype="multipart/form-data" class="form-content">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="form-btn">submit</button>
+        <form method="post" action="{% url 'main' %}" enctype="multipart/form-data" class="notice-form">
+                {% csrf_token %}
+                {% for elem in form %}
+                <div class="class-form" ><label class="class-label" for="{{elem.id_for_label}}">{{elem.label}}</label><br>{{elem}}</div>
+                <div>{{elem.errors}}</div>
+                {% endfor %}
+                <button type="submit" class="form-btn">Make notice</button>
         </form>
     </div>
     <div class="notice-content">
@@ -19,7 +22,7 @@
     {% if notice %}
         <ul>
             {% for noty in notice %}
-                <li><p>
+                <li class="form-notice-content"><p>
                     Author  {{noty.user}} - at: {{noty.crated_at|date:'d-m-Y' }} {{noty.crated_at|time:'H:i:s' }}
                     </p>
                     <a href="{% url 'notice_detail' noty.pk %}">{{noty.title}}</a>
