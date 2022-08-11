@@ -6,6 +6,6 @@ class NoticeForm(forms.ModelForm):
 
     class Meta:
         model = Notice
-        fields = ["title", "text"]
+        fields = ["is_public", "title", "text"]
 
 

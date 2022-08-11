@@ -61,13 +61,12 @@ a:hover {
     width: inherit;
     height: inherit;
     font-size: 0;
-    border-radius: 15px 0px 0px 15px;
+    border-radius: 15px;
 }
 .data-types {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-
 }
 
 .navbar {
@@ -84,7 +83,7 @@ a:hover {
 }
 
 .register-quit span {
-    font-size: 2em
+    font-size: 1.7em;
 }
 
 .righted {
@@ -149,7 +148,6 @@ button:active {
     border: 2px solid black;
     border-radius: 4px;
 }
-
 .vl {
     border-right: 6px solid #012E40;
 }

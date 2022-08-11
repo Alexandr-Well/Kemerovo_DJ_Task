@@ -11,13 +11,28 @@
     <div class="header-avatar">
     {% if request.user.is_authenticated %}
         {% if request.user.file %}
-        <img src="{{request.user.file.url}}" class="avatar">
-        <div class="register-quit">
-            <span class="user-text user-btn vl"> {{request.user.username}} </span>
-                <a href="{% url 'logout' %}">
-            <span> Quit</span></a>
-        </div>
+            <img src="{{request.user.file.url}}" class="avatar">
+        {% else %}
+            <img src=" /static/site_img/anon_user2.png " class="avatar">
         {% endif %}
+        <div class="register-quit">
+            <a href= "{% url 'main' %}">
+                <span class="">Main Page </span>
+            </a>
+        </div>
+        <div class="register-quit">
+            <a href= "{% url 'user_info' %}">
+                <span class="">Profile information </span>
+            </a>
+        </div>
+        <div class="register-quit">
+            <a href="{% url 'users_notice' %}">
+                <span class="user-text user-btn vl"> {{request.user.username}}</span>
+            </a>
+            <a href="{% url 'logout' %}">
+                <span> Quit</span>
+            </a>
+        </div>
     {% else %}
         <div class="register-quit righted">
             <a href="{% url 'registration' %}">

@@ -1,12 +1,11 @@
 {% extends "user/base.html" %}
 {% block content %}
 <title>Registration </title>
-<a href= "{% url 'main' %}">Back</a>
 <h1>
     Register New User
 </h1>
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {% for elem in form %}
     <p><label class="example" for="{{elem.id_for_label}}">{{elem.label}}: </label>{{elem}}</p>
