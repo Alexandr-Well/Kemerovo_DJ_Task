@@ -63,8 +63,17 @@ class ViewUserInfo(LoginRequiredMixin, TemplateView):
     login_url = 'login'
     redirect_field_name = ''
 
-    def form_valid(self, form):
-        return redirect('user_info')
+
+class ViewOthersUserInfo(LoginRequiredMixin, TemplateView):
+    template_name = 'user/other_user_info.html'
+    login_url = 'login'
+    redirect_field_name = ''
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        kwargs.update({
+            'user': CustomUser.objects.filter(pk=self.kwargs['pk']).first()
+        })
+        return super().get_context_data(**kwargs)
 
 
 class EditUserInfo(LoginRequiredMixin, UpdateView):

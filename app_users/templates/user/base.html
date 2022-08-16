@@ -7,42 +7,80 @@
 </head>
 
 <body>
-<div class="container" >
-    <div class="header-avatar">
+<div class="container">
+    <header class="header-avatar">
     {% if request.user.is_authenticated %}
         {% if request.user.file %}
             <img src="{{request.user.file.url}}" class="avatar">
         {% else %}
             <img src=" /static/site_img/anon_user2.png " class="avatar">
         {% endif %}
-        <div class="register-quit">
-            <a href= "{% url 'main' %}">
-                <span class="">Main Page </span>
-            </a>
+    <nav class="menu">
+        {% if users %}
+            <div class="nav-element">
+                <div>
+                    <span class="user-text user-btn">
+                        User:
+                    </span>
+                    <select class="choice-user" onchange="window.location.href=this.options[this.selectedIndex].value">
+                        {% for user in users %}
+                            <option VALUE="{% url 'user_info_pk' user.pk %}">
+                                {{user}}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        {% else %}
+            <p> No users yet: </p>
+        {% endif %}
+        <div class="nav-element">
+            <div>
+                <a href= "{% url 'main' %}">
+                    <span class="user-text user-btn">Main Page </span>
+                </a>
+            </div>
         </div>
-        <div class="register-quit">
-            <a href= "{% url 'user_info' %}">
-                <span class="">Profile information </span>
-            </a>
+        <div class="nav-element">
+            <div>
+                <a href= "{% url 'user_info' %}">
+                    <span class="user-text user-btn">Profile information </span>
+                </a>
+            </div>
         </div>
-        <div class="register-quit">
-            <a href="{% url 'users_notice' %}">
-                <span class="user-text user-btn vl"> {{request.user.username}}</span>
-            </a>
-            <a href="{% url 'logout' %}">
-                <span> Quit</span>
-            </a>
+        <div class="nav-element">
+            <div>
+                <a href="{% url 'users_notice' %}">
+                    <span class="user-text user-btn vl"> {{request.user.username}}</span>
+                </a>
+                <a href="{% url 'logout' %}">
+                    <span class="user-text user-btnv "> Quit</span>
+                </a>
+            </div>
         </div>
     {% else %}
-        <div class="register-quit righted">
-            <a href="{% url 'registration' %}">
-                <span class="vl">Регистрация </span></a>
-            <a href="{% url 'login' %}">
-                <span> Войти</span></a>
+        <div class="nav-element righted">
+            <div>
+                <a href="{% url 'registration' %}">
+                    <span class="vl">Регистрация </span></a>
+                <a href="{% url 'login' %}">
+                    <span> Войти</span></a>
+            </div>
         </div>
+    </nav>
     {% endif %}
-</div>
+</header>
 {% block content %}
 {% endblock %}
+<footer class="footer">
+    <div class="contacts">
+        <div class="contacts-item">
+            <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+        </div>
+        <div class="contacts-item">
+            <a href="#">Telegram link</a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

@@ -1,0 +1,30 @@
+{% extends "user/base.html" %}
+{% load static %}
+{% block content %}
+<title>Profile</title>
+<h1>
+Profile
+</h1>
+    {% if user.file %}
+        <img src="{{user.file.url}}" class="avatar other-avatar">
+    {% else %}
+        <img src=" /static/site_img/anon_user2.png " class="avatar">
+    {% endif %}
+    <ul>
+        <li>
+            <p> username: {{user.username}} </p>
+        </li>
+        <li>
+            <p> name: {{user.first_name}} </p>
+        </li>
+        <li>
+            <p> Email: {{user.email}} </p>
+        </li>
+        <li>
+            <p> birthday: {{user.birthday}} </p>
+        </li>
+        <li>
+            <p> status: {{user.status}} </p>
+        </li>
+    </ul>
+{% endblock %}

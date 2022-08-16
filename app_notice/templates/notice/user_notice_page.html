@@ -1,14 +1,8 @@
 {% extends "user/base.html" %}
 {% block content %}
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 <div class="data-types">
-    <div class=" notice-background">
-        <h2>New notice: </h2>
-        <form method="post" action="{% url 'main' %}" enctype="multipart/form-data" class="notice-form">
+    <div class="notice-background">
+        <form method="post" action="{% url 'users_notice' %}" enctype="multipart/form-data" class="notice-form">
                 {% csrf_token %}
                 {% for elem in form %}
                 <div class="class-form" ><label class="class-label" for="{{elem.id_for_label}}">{{elem.label}}</label><br>{{elem}}</div>
@@ -22,33 +16,25 @@
     {% if notice %}
         <ul>
             {% for noty in notice %}
-                <li class="form-notice-content"><p>
-                    Author  {{noty.user}} - at: {{noty.crated_at|date:'d-m-Y' }} {{noty.crated_at|time:'H:i:s' }}
-                    </p>
-                    <a href="{% url 'notice_detail' noty.pk %}">{{noty.title}}</a>
-                    <p>
-                         {{noty.text|truncatechars:70}}
-                    </p>
-                </li>
+                    <a href="{% url 'notice_detail' noty.pk %}">
+                        <li class="form-notice-content">
+                            <p class="notice-text">
+                                Author  {{noty.user}} - at: {{noty.crated_at|date:'d-m-Y' }} {{noty.crated_at|time:'H:i:s' }}
+                            </p>
+                            <p class="notice-text">
+                                {{noty.title}}
+                            </p>
+                            <p class="notice-text">
+                                 {{noty.text|truncatechars:70}}
+                            </p>
+                        </li>
+                    </a>
             {% endfor %}
         </ul>
     {% else %}
         <p> No notice yet: </p>
     {% endif %}
     </div>
-    <div class="user-content">
-    <h2> Users: </h2>
-    {% if users %}
-        <ul>
-            {% for user in users %}
-                <li>{{user}}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p> No users yet: </p>
-    {% endif %}
-    </div>
 </div>
-</body>
 {% endblock %}
-</html>
+

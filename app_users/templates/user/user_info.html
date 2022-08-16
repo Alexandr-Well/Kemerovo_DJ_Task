@@ -31,12 +31,4 @@ Profile
             <p> status: {{request.user.status}} </p>
         </li>
     </ul>
-
-{% if request.user.is_superuser %}<form action="{% url 'user_info'%}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">submit</button>
-</form>
-{% endif %}
 {% endblock %}
-</html>

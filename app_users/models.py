@@ -26,7 +26,7 @@ class CustomUser(AbstractUser, PermissionsMixin):
         verbose_name_plural = "CustomUser"
 
     def get_absolute_url(self):
-        return reverse('user_info')
+        return reverse('user_info', kwargs={'pk': self.pk})
 
 
 class CustomGroup(Group):

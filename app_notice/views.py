@@ -18,12 +18,7 @@ class MainPage(LoginRequiredMixin, FormView):
     def get_context_data(self, **kwargs):
         notice = Notice.objects.filter(
             is_public=True).select_related('user').only('user__username').order_by('-crated_at')[:20]
-        users = cache.get('users')
-        if not users:
-            users = CustomUser.objects.filter(is_active=True)
-            cache.set('users', users, 60)
         kwargs.update({
-            'users': users,
             'notice': notice,
         })
         return super().get_context_data(**kwargs)
@@ -48,7 +43,6 @@ class UserNotice(LoginRequiredMixin, FormView):
             users = CustomUser.objects.filter(is_active=True)
             cache.set('users', users, 60)
         kwargs.update({
-            'users': users,
             'notice': notice,
         })
         return super().get_context_data(**kwargs)
