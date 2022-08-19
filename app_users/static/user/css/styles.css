@@ -302,6 +302,7 @@ button:active {
     border: 2px solid black;
     border-radius: 4px;
     word-break: break-all;
+    overflow-y: auto;
     background-color: #fbf8a2;
 }
 
