@@ -3,41 +3,19 @@
 <div class="data-types">
     <div class=" notice-background">
         <form method="post" action="{% url 'main' %}" enctype="multipart/form-data" class="notice-form">
-                {% csrf_token %}
-                {% for elem in form %}
-                <div class="class-form" ><label class="class-label" for="{{elem.id_for_label}}">{{elem.label}}</label><br>{{elem}}</div>
-                <div>{{elem.errors}}</div>
-                {% endfor %}
-                <button type="submit" class="form-btn">Make notice</button>
+            {% csrf_token %}
+            {% for elem in form %}
+            <div class="class-form"><label class="class-label" for="{{elem.id_for_label}}">{{elem.label}}</label><br>{{elem}}
+            </div>
+            <div>{{elem.errors}}</div>
+            {% endfor %}
+            <button type="submit" class="form-btn">Make notice</button>
         </form>
     </div>
     <div class="notice-content">
-        {% for page in paginator.page_range %}
-                <ul>
-            {% for noty in notice %}
-                    <a href="{% url 'notice_detail' noty.pk %}">
-                        <li class="form-notice-content">
-                            <div class="notice-text">
-                                <span>
-                                    Author:  {{noty.user}} - at: {{noty.crated_at|date:'d-m-Y' }} {{noty.crated_at|time:'H:i:s' }}
-                                </span>
-                            </div>
-                            <div class="notice-text">
-                                <span>
-                                    Title: {{noty.title}}
-                                </span>
-                            </div>
-                            <div class="notice-text">
-                                 <span>
-                                    Text: {{noty.text|truncatechars:70}}
-                                 </span>
-                            </div>
-                        </li>
-                    </a>
-            {% endfor %}
-        </ul>
-        {% endfor %}
+        {% include "notice/notices.html" %}
     </div>
+</div>
 </div>
 {% endblock %}
 

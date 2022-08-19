@@ -1,29 +1,57 @@
-
-    <h2> Notice: </h2>
+<h2> Notice: </h2>
+<div class="notice-content">
     {% if notice %}
-        <ul>
-            {% for noty in notice %}
-                    <a href="{% url 'notice_detail' noty.pk %}">
-                        <li class="form-notice-content">
-                            <div class="notice-text">
+    <ul>
+        {% for noty in notice %}
+        <a href="{% url 'notice_detail' noty.pk %}">
+            <li class="form-notice-content">
+                <div class="notice-text">
                                 <span>
                                     Author:  {{noty.user}} - at: {{noty.crated_at|date:'d-m-Y' }} {{noty.crated_at|time:'H:i:s' }}
                                 </span>
-                            </div>
-                            <div class="notice-text">
+                </div>
+                <div class="notice-text">
                                 <span>
                                     Title: {{noty.title}}
                                 </span>
-                            </div>
-                            <div class="notice-text">
+                </div>
+                <div class="notice-text">
                                  <span>
                                     Text: {{noty.text|truncatechars:70}}
                                  </span>
-                            </div>
-                        </li>
-                    </a>
-            {% endfor %}
-        </ul>
+                </div>
+            </li>
+        </a>
+        {% endfor %}
+    </ul>
     {% else %}
-        <p> No notice yet: </p>
+    <p> No notice yet: </p>
+    {% endif %}
+    {% if notice.has_other_pages %}
+    <div class="list-pages">
+        <ul>
+            {% if notice.has_previous %}
+            <li class="page-num">
+                <a href="?page={{ notice.previous_page_number }}">&lt;</a>
+            </li>
+            {% endif %}
+
+            {% for p in paginator.page_range %}
+            {% if notice.number == p %}
+            <li class="page-num page-num-selected">{{ p }}</li>
+            {% elif p >= notice.number|add:-2 and p <= notice.number|add:2 %}
+            <li class="page-num">
+                <a href="?page={{ p }}">{{ p }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+
+            {% if notice.has_next %}
+            <li class="page-num">
+                <a href="?page={{ notice.next_page_number }}">&gt;</a>
+            </li>
+            {% endif %}
+
+        </ul>
+    </div>
     {% endif %}
