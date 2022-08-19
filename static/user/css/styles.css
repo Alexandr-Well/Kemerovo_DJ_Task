@@ -105,7 +105,8 @@ h1 {
 
 }
 
-.nav-element-text {
+.nav-element div {
+    font-size: 1.55em;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     box-shadow: 0 0 10px 5px #ECF0F1;
@@ -240,7 +241,6 @@ button:active {
     left: 55%;
     transform: translate(-50%, 0);
 }
-
 
 .choice-user {
     font-size: 1em;

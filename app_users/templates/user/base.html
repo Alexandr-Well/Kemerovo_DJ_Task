@@ -18,7 +18,7 @@
     <nav class="menu">
         {% if users %}
             <div class="nav-element">
-                <div>
+                <div class="nav-element-text">
                     <span class="user-text user-btn">
                         User:
                     </span>
@@ -35,21 +35,21 @@
             <p> No users yet: </p>
         {% endif %}
         <div class="nav-element">
-            <div>
+            <div class="nav-element-text">
                 <a href= "{% url 'main' %}">
                     <span class="user-text user-btn">Main Page </span>
                 </a>
             </div>
         </div>
         <div class="nav-element">
-            <div>
+            <div class="nav-element-text">
                 <a href= "{% url 'user_info' %}">
                     <span class="user-text user-btn">Profile information </span>
                 </a>
             </div>
         </div>
         <div class="nav-element">
-            <div>
+            <div class="nav-element-text">
                 <a href="{% url 'users_notice' %}">
                     <span class="user-text user-btn vl"> {{request.user.username}}</span>
                 </a>
@@ -60,7 +60,7 @@
         </div>
     {% else %}
         <div class="nav-element righted">
-            <div>
+            <div class="nav-element-text">
                 <a href="{% url 'registration' %}">
                     <span class="vl">Регистрация </span></a>
                 <a href="{% url 'login' %}">
@@ -69,6 +69,7 @@
         </div>
     </nav>
     {% endif %}
+    <script src="{% static 'user/js/js.js' %}"></script>
 </header>
 {% block content %}
 {% endblock %}
