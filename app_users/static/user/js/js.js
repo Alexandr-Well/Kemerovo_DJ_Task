@@ -12,4 +12,3 @@ function makeFont() {
 
 
 makeFont()
-console.log(document.querySelectorAll('.nav-element-text'));

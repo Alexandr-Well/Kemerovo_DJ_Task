@@ -130,6 +130,8 @@ h1 {
 }
 
 .form-notice-content {
+    display: flex;
+    flex-direction: column;
     background-color: #F4B350;
     border-radius: 15px;
 }
@@ -283,7 +285,31 @@ button:active {
     margin-left: 5%;
 }
 
+.detail-page h1{
+    display: inline-block;
+    left: 50%;
+}
+
+
+.class-form textarea{
+    background-color: #fbf8a2;
+}
+
+.class-form input{
+    background-color: #fbf8a2;
+}
+
 .notice-text {
+    display: block;
     margin-left: 5%;
     margin-top: 2%;
 }
+
+.notice-text span{
+    margin-left: 5%;
+    margin-top: 2%;
+    background-color: #F27935;
+    text-decoration: underline;
+    border-radius: 4px;
+}
+

@@ -18,15 +18,21 @@
             {% for noty in notice %}
                     <a href="{% url 'notice_detail' noty.pk %}">
                         <li class="form-notice-content">
-                            <p class="notice-text">
-                                Author  {{noty.user}} - at: {{noty.crated_at|date:'d-m-Y' }} {{noty.crated_at|time:'H:i:s' }}
-                            </p>
-                            <p class="notice-text">
-                                {{noty.title}}
-                            </p>
-                            <p class="notice-text">
-                                 {{noty.text|truncatechars:70}}
-                            </p>
+                            <div class="notice-text">
+                                <span>
+                                    Author:  {{noty.user}} - at: {{noty.crated_at|date:'d-m-Y' }} {{noty.crated_at|time:'H:i:s' }}
+                                </span>
+                            </div>
+                            <div class="notice-text">
+                                <span>
+                                    Title: {{noty.title}}
+                                </span>
+                            </div>
+                            <div class="notice-text">
+                                 <span>
+                                    Text: {{noty.text|truncatechars:70}}
+                                 </span>
+                            </div>
                         </li>
                     </a>
             {% endfor %}
