@@ -1,0 +1,7 @@
+asgiref==3.5.2
+colorama==0.4.5
+Django==4.1
+loguru==0.6.0
+sqlparse==0.4.2
+tzdata==2022.1
+win32-setctime==1.1.0

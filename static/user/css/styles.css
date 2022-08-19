@@ -105,8 +105,7 @@ h1 {
 
 }
 
-.nav-element div {
-    font-size: 1.55em;
+.nav-element-text {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     box-shadow: 0 0 10px 5px #ECF0F1;
@@ -131,6 +130,8 @@ h1 {
 }
 
 .form-notice-content {
+    display: flex;
+    flex-direction: column;
     background-color: #F4B350;
     border-radius: 15px;
 }
@@ -186,14 +187,7 @@ button:active {
     font-size 1.4em;
 }
 
-.detail-page {
-    width: 100%;
-    height: 100vh;
-}
-.detail-content {
-    border: 2px solid black;
-    border-radius: 4px;
-}
+
 .vl {
     border-right: 6px solid #012E40;
 }
@@ -242,6 +236,7 @@ button:active {
     transform: translate(-50%, 0);
 }
 
+
 .choice-user {
     font-size: 1em;
     cursor: pointer;
@@ -283,7 +278,99 @@ button:active {
     margin-left: 5%;
 }
 
+.detail-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+.detail-content{
+
+}
+
+.detail-page .title {
+    display: inline-block;
+    flex-shrink: 1;
+    margin-left: 5%;
+    text-decoration: underline;
+}
+
+.detail-page .text {
+    margin-bottom: 10px;
+    min-height: 10%;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color: #fbf8a2;
+}
+
+.detail-page .author {
+    display: inline-block;
+    margin-bottom: 10px;
+    border: 2px solid black;
+    border-radius: 4px;
+    background-color: #fbf8a2;
+}
+
+
+.class-form textarea{
+    background-color: #fbf8a2;
+}
+
+.class-form input{
+    background-color: #fbf8a2;
+}
+
 .notice-text {
+    display: block;
     margin-left: 5%;
     margin-top: 2%;
+}
+
+.notice-text span{
+    margin-left: 5%;
+    margin-top: 2%;
+    background-color: #F27935;
+    text-decoration: underline;
+    border-radius: 4px;
+}
+
+.list-pages {
+	text-align: center;
+	margin: 20px 0 0 0;
+}
+.list-pages ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.list-pages ul li {
+	display: inline-block;
+	margin: 0 20px 0 0;
+}
+.list-pages a {
+	color: #000;
+	font-size: 24px;
+	text-decoration: none;
+}
+.list-pages .page-num, .page-num-selected {
+	display: inline-block;
+	width: 60px;
+	height: 44px;
+	padding: 16px 0 0 0;
+	border: 1px solid #d0d0d0;
+	border-radius: 30px;
+}
+.list-pages .page-num:hover {
+	box-shadow: 3px 3px 1px #d0d0d0;
+}
+.list-pages .page-num-selected {
+	border: none;
+	color: #000;
+	font-size: 20px;
+}
+.list-pages .page-num-selected:hover {
+	box-shadow: none;
 }
