@@ -31,6 +31,7 @@ class RegisterUser(CreateView):
     def form_valid(self, form):
         user = form.save()
         auth_login(self.request, user)
+        logger.info(f"{self.request.user.username} registered")
         return redirect('main')
 
 
@@ -52,6 +53,7 @@ def logout_user(request):
     logout
     """
     logout(request)
+    logger.info(f"{request.user.username} logged out")
     return redirect('login')
 
 

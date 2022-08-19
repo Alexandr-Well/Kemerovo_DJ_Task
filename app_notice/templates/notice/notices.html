@@ -1,19 +1,7 @@
-{% extends "user/base.html" %}
-{% block content %}
-<div class="data-types">
-    <div class=" notice-background">
-        <form method="post" action="{% url 'main' %}" enctype="multipart/form-data" class="notice-form">
-                {% csrf_token %}
-                {% for elem in form %}
-                <div class="class-form" ><label class="class-label" for="{{elem.id_for_label}}">{{elem.label}}</label><br>{{elem}}</div>
-                <div>{{elem.errors}}</div>
-                {% endfor %}
-                <button type="submit" class="form-btn">Make notice</button>
-        </form>
-    </div>
-    <div class="notice-content">
-        {% for page in paginator.page_range %}
-                <ul>
+
+    <h2> Notice: </h2>
+    {% if notice %}
+        <ul>
             {% for noty in notice %}
                     <a href="{% url 'notice_detail' noty.pk %}">
                         <li class="form-notice-content">
@@ -36,8 +24,6 @@
                     </a>
             {% endfor %}
         </ul>
-        {% endfor %}
-    </div>
-</div>
-{% endblock %}
-
+    {% else %}
+        <p> No notice yet: </p>
+    {% endif %}
