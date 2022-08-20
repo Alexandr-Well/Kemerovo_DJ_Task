@@ -31,7 +31,7 @@ python manage.py runserver
 
 ## Установка через Docker
 
-1. Склонировать репозиторий с Github:
+1. Склонировать репозиторий с Github (ветка database):
 
 ```
 git clone https://github.com/Alexandr-Well/Kemerovo_DJ_Task.git
