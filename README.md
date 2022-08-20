@@ -52,7 +52,7 @@ python -m venv venv
 
 ```
 docker-compose build
-docker-compose build
+docker-compose up
 ```
 
 4. в контейнере django 
