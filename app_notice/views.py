@@ -1,10 +1,10 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.paginator import Paginator
 from django.shortcuts import redirect
 from django.views.generic import FormView, DetailView
 from app_notice.forms import NoticeForm
 from app_notice.models import Notice
-from .tools import make_pagination
+from .utils import make_pagination
 
 
 class MainPage(LoginRequiredMixin, FormView):
