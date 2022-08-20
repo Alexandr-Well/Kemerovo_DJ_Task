@@ -4,6 +4,7 @@
 ## Установка и запуск
 
 1. Склонировать репозиторий с Github:
+
 ```
 git clone https://github.com/Alexandr-Well/Kemerovo_DJ_Task.git
 ```
@@ -15,18 +16,23 @@ python -m venv venv
 ```
 
 3. Создать и применить миграции в базу данных:
+
 ```
 python manage.py makemigrations
 python manage.py migrate
 ```
+
 4. Запустить сервер
+
 ```
 для каждой команды в отдельном терменале
 python manage.py runserver
+```
 
 ## Установка через Docker
 
 1. Склонировать репозиторий с Github:
+
 ```
 git clone https://github.com/Alexandr-Well/Kemerovo_DJ_Task.git
 ```
@@ -56,6 +62,7 @@ python manage.py createsuperuser
 ***
 ## URLS
 ***
+
 ```
 http://127.0.0.1:8000/main/ < главная добавлена пагинация 20 заметок c флагом public на страницу
 http://127.0.0.1:8000/main/<int:pk>/ < детальная страница заметки
