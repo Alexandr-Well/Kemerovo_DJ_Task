@@ -15,17 +15,22 @@ git clone https://github.com/Alexandr-Well/Kemerovo_DJ_Task.git
 python -m venv venv
 ```
 
-3. Создать и применить миграции в базу данных:
+3. Загрузить зависимости:
+
+```
+pip install requirements.txt
+```
+
+4. Создать и применить миграции в базу данных:
 
 ```
 python manage.py makemigrations
 python manage.py migrate
 ```
 
-4. Запустить сервер
+5. Запустить сервер
 
 ```
-для каждой команды в отдельном терменале
 python manage.py runserver
 ```
 
