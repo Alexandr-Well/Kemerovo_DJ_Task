@@ -1,10 +1,10 @@
 {% extends "user/base.html" %}
 {% block content %}
 <title>Registration</title>
+<div class="page-user-container">
 <h1>
     Auth User
 </h1>
-
 <form method="post">
     {% csrf_token %}
     {% for elem in form %}
@@ -15,5 +15,6 @@
     <button type="submit">submit</button>
 
 </form>
+</div>
 {% endblock %}
 </html>

@@ -18,7 +18,7 @@ class CustomUser(AbstractUser, PermissionsMixin):
     last_name = models.TextField("last name", blank=True)
     fathers_name = models.TextField("fathers name", blank=True)
     file = models.FileField(upload_to='files/%Y/%m/%d/', null=True, blank=True)
-    status = models.TextField("status", max_length=140, default="")
+    status = models.TextField("status", max_length=140, default="", blank=True)
     verification = models.BooleanField('verification', default=False)
 
     class Meta:
@@ -26,7 +26,7 @@ class CustomUser(AbstractUser, PermissionsMixin):
         verbose_name_plural = "CustomUser"
 
     def get_absolute_url(self):
-        return reverse('user_info', kwargs={'pk': self.pk})
+        return reverse('user_info')
 
 
 class CustomGroup(Group):

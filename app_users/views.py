@@ -83,11 +83,11 @@ class EditUserInfo(LoginRequiredMixin, UpdateView):
     изменение информации о юзере
     """
     login_url = 'login'
-    redirect_field_name = ''
+    redirect_field_name = 'user_info'
 
     template_name = 'user/cng_user_info.html'
     model = CustomUser
-    fields = ['first_name', 'last_name', 'fathers_name', 'birthday', 'username', 'email', 'file']
+    fields = ['status', 'first_name',  'last_name', 'fathers_name', 'birthday', 'username', 'email', 'file']
 
     def get_object(self):
         return self.request.user

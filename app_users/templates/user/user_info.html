@@ -2,33 +2,37 @@
 {% load static %}
 {% block content %}
 <title>Profile</title>
-<h1>
-Profile
-</h1>
-
-<a href="{% url 'cng_user_info' request.user.pk %}">Change profile info</a>
-    <ul>
-        <li>
-            <p> username: {{request.user.username}} </p>
-        </li>
-        <li>
-            <p> name: {{request.user.first_name}} </p>
-        </li>
-        <li>
-            <p> lastname: {{request.user.last_name}} </p>
-        </li>
-        <li>
-            <p> fathers name: {{request.user.fathers_name}} </p>
-        </li>
-        <li>
-            <p> Email: {{request.user.email}} </p>
-        </li>
-
-        <li>
-            <p> birthday: {{request.user.birthday}} </p>
-        </li>
-        <li>
-            <p> status: {{request.user.status}} </p>
-        </li>
-    </ul>
+<div class="page-user-container">
+    <h1>
+    Profile
+    </h1>
+        <ul>
+            <li class="all-text">
+                <p> status: {{request.user.status}} </p>
+            </li>
+            <li class="all-text">
+                <p> username: {{request.user.username}} </p>
+            </li>
+            <li class="all-text">
+                <p> name: {{request.user.first_name}} </p>
+            </li>
+            <li class="all-text">
+                <p> lastname: {{request.user.last_name}} </p>
+            </li>
+            <li class="all-text">
+                <p> fathers name: {{request.user.fathers_name}} </p>
+            </li>
+            <li>
+                <p> Email: {{request.user.email}} </p>
+            </li>
+            <li>
+                <p> birthday: {{request.user.birthday}} </p>
+            </li>
+        </ul>
+    <button>
+        <a href="{% url 'cng_user_info' request.user.pk %}">
+            Change profile info
+        </a>
+    </button>
+</div>
 {% endblock %}

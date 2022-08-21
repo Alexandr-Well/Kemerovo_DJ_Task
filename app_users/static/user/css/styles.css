@@ -19,6 +19,7 @@ textarea {
     max-width:75%;
     border-radius: 10px;
     font-size: 1.1em;
+    resize:none;
 }
 h2 {
     margin: 0;
@@ -68,6 +69,40 @@ h1 {
     background-color: #1BA39C;
     border-radius: 15px;
 }
+
+.page-user-container {
+    margin-left: 20px;
+}
+
+#id_status {
+    box-shadow: none;
+    resize: none;
+    box-shadow:none;
+    resize:none;
+    height: 2.4em;
+}
+#id_first_name {
+    box-shadow: none;
+    resize: none;
+    box-shadow:none;
+    resize:none;
+    height: 2.4em;
+}
+#id_last_name {
+    box-shadow: none;
+    resize: none;
+    box-shadow:none;
+    resize:none;
+    height: 2.4em;
+}
+#id_fathers_name{
+    box-shadow: none;
+    resize: none;
+    box-shadow:none;
+    resize:none;
+    height: 2.4em;
+}
+
 
 .header-avatar {
     border-radius: 15px;
@@ -295,15 +330,18 @@ button:active {
     text-decoration: underline;
 }
 
-.detail-page .text {
+.detail-page .all-text {
     display: inline-block;
     margin-bottom: 10px;
     min-height: 10%;
     border: 2px solid black;
     border-radius: 4px;
+    background-color: #fbf8a2;
+}
+
+.all-text{
     word-break: break-all;
     overflow-y: auto;
-    background-color: #fbf8a2;
 }
 
 .detail-page .author {
